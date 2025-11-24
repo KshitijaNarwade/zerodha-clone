@@ -1,5 +1,3 @@
-# zerodha-clone
-
 # Zerodha Clone
 
 A simple and functional clone of **Zerodha**, India's largest stock brokerage platform.  
