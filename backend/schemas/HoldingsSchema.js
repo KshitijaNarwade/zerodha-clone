@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema} = require('mongoose');
 const HoldingsSchema = new Schema({
 
     name: String,
@@ -11,4 +11,4 @@ const HoldingsSchema = new Schema({
 
 });
 
-modjule.exports = { HoldingsSchema };
+module.exports = { HoldingsSchema };

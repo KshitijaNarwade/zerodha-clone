@@ -1,95 +1,78 @@
-### **Database**
-- MongoDB Atlas (cloud database)
+# 🧩 How to Insert Dummy Data into MongoDB
 
----
+You must visit each route **only once** to avoid inserting duplicate
+records.
 
-# ⚙️ MongoDB Atlas Setup & Configuration
+------------------------------------------------------------------------
 
-Follow these steps to connect your backend to MongoDB Atlas.
+### ▶️ Add Holdings Data
 
-## 1️⃣ Create MongoDB Cluster
+Open this URL in your browser:
 
-1. Go to https://www.mongodb.com/atlas
-2. Create a free account (if new)
-3. Create a **Project**
-4. Create a **Cluster** (Free M0)
-5. Add a database user with:
-   - Username
-   - Password
+    http://localhost:5000/addHoldings
 
----
+------------------------------------------------------------------------
 
+### ▶️ Add Position Data
 
-## 2️⃣ Allow IP Access
+Open this URL:
 
-Go to:
+    http://localhost:5000/addPosition
 
-Security → Network Access → Add IP Address
+------------------------------------------------------------------------
 
-makefile
-Copy code
+# ⚠️ IMPORTANT WARNING --- READ THIS
 
+### ❗ Both routes insert the entire dummy data every time they are accessed.
 
-Choose:
-Allow Access From Anywhere ( 0.0.0.0/0 )
+That means:
 
+-   Do **NOT** refresh the browser\
+-   Do **NOT** open the URL twice\
+-   Do **NOT** manually call the route multiple times
 
+If you do, the same data will be inserted again → **duplicate records
+will be created**.
 
-This allows your app to connect from any machine.
+------------------------------------------------------------------------
 
----
+### ✔️ Correct usage:
 
-## 3️⃣ Get Your Connection String
+-   Visit `/addHoldings` once\
+-   Visit `/addPosition` once\
+-   Then **do not visit these endpoints again**
 
-1. Go to **Cluster**
-2. Click **Connect**
-3. Choose **“Connect your application”**
-4. Driver: **Node.js**
-5. Copy the URL: **mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/**
+------------------------------------------------------------------------
 
+### 🧹 If duplicate data gets added:
 
----
+Go to MongoDB Atlas → Collections → delete duplicates, or drop the
+collection entirely and re-insert.
 
-## 4️⃣ Create `.env` File
+------------------------------------------------------------------------
 
-Inside the **backend** folder, create a file named:
+# 🧪 Verify Data in MongoDB
 
-1. Add : MONGO_URL=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/yourDBName
-PORT=5000
+To confirm that your dummy data is successfully inserted:
 
-2.
-Replace:
-- `<username>`
-- `<password>`
-- `yourDBName` (any name you choose)
+1.  Open MongoDB Atlas\
+2.  Go to your **Cluster**\
+3.  Click **Browse Collections**\
+4.  You should see:
+    -   `holdings` collection with holdings records\
+    -   `positions` collection with positions records
 
----
+------------------------------------------------------------------------
 
-## 5️⃣ MongoDB Connection Code
+# ✔️ Summary
 
-```js
-require("dotenv").config();
+You have:
 
-const express = require("express");
-const mongoose = require("mongoose");
+-   Installed all dependencies\
+-   Set up `.env` correctly\
+-   Started the backend\
+-   Inserted dummy data by visiting two routes once\
+-   Verified data inside MongoDB\
+-   Prevented duplicate entries
 
-const PORT = process.env.PORT || 3002;
-const uri = process.env.MONGO_URI;
-
-const app = express();
-
-
-
-app.listen(PORT, () => {
-    console.log("Server is running on port 3002");
-    mongoose.connect(uri);
-    console.log("Connected to MongoDB");
-});
-
-
----
-## Running The Project
-
-1. cd backend
-2. npm install
-3. npm start
+Your backend dummy-data seeding setup is now complete! 🎉
