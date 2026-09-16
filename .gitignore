@@ -1,0 +1,14 @@
+# zerodha-clone
+
+
+# Ignore node_modules everywhere
+**/node_modules/
+
+# Ignore build folders everywhere
+**/dist/
+**/build/
+
+# Ignore env files
+*.env
+
+indexOginal.js

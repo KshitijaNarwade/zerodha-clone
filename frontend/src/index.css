@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.nav-link{
+  text-decoration: none;
+  color: black;
+}
+.nav-link:hover {
+  color: #007bff;
+}
+#supportHero{
+  background-color: #4298f5;
+  color: white;}
+#supportWrapper{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 100px;
+}
+
+#supportLinks{
+  text-decoration: none;
+  color: white;
+}
+
+#supportLinks:hover{
+  text-decoration: underline;
+}
+
+#supportInput{
+  padding: 0.75rem 2rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+}
+
+#supportInput::placeholder{
+ font-size: small;
+}
